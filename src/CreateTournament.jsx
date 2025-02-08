@@ -74,7 +74,7 @@ function CreateEvent() {
           gap: "10px",
         }}
       >
-        <h4 style={{ margin: 0, marginTop: "10px" }}>Create Event</h4>
+        <h4 style={{ margin: 0, marginTop: "10px" }}>Create Tournament</h4>
         <form onSubmit={create}>
           <input
             type="text"
@@ -94,19 +94,6 @@ function CreateEvent() {
             id="venue"
             value={venue}
             onChange={(e) => setVenue(e.target.value)}
-            style={{
-              width: "100%",
-              padding: "10px",
-              backgroundColor: "white",
-              color: "black",
-            }}
-          />
-          <input
-            type="number"
-            placeholder="Player Required"
-            id="playerRequired"
-            value={Player}
-            onChange={(e) => setPlayer(e.target.value)}
             style={{
               width: "100%",
               padding: "10px",

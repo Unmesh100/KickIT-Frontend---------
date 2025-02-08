@@ -10,13 +10,11 @@ import JoinUs from "./JoinUs.jsx";
 import CreateEvent from "./CreateEvent.jsx";
 import AllEvents from "./AllEvents.jsx";
 import Tournament from "./Tournament.jsx";
-import Profile from "./profile.jsx"
-import UpdateProfile from "./updateProfile.jsx"
-import ChatApp from "./chatApp.jsx"
-import {
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
+import Profile from "./profile.jsx";
+import UpdateProfile from "./updateProfile.jsx";
+import ChatApp from "./chatApp.jsx";
+import CreateTournament from "./CreateTournament.jsx";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,28 +37,28 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path:"/profile",
+    path: "/profile",
     element: (
       <div>
-        <Profile/>
+        <Profile />
         <SportsAnim />
       </div>
     ),
   },
   {
-    path:"/chatApp",
+    path: "/chatApp",
     element: (
       <div>
-        <ChatApp/>
+        <ChatApp />
         <SportsAnim />
       </div>
     ),
   },
   {
-    path:"/profileUpdate",
+    path: "/profileUpdate",
     element: (
       <div>
-        <UpdateProfile/>
+        <UpdateProfile />
         <SportsAnim />
       </div>
     ),
@@ -98,7 +96,6 @@ const router = createBrowserRouter([
     element: (
       <div>
         <AllEvents />
-        <SportsAnim />
       </div>
     ),
   },
@@ -108,7 +105,16 @@ const router = createBrowserRouter([
       <div>
         <Navbar />
         <Tournament />
-        <SportsAnim/>
+      </div>
+    ),
+  },
+  {
+    path: "/createTournament",
+    element: (
+      <div>
+        <Navbar />
+
+        <CreateTournament />
       </div>
     ),
   },

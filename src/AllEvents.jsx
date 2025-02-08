@@ -1,12 +1,13 @@
-import React, { useRef,useState } from "react";
+import React, { useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 import SportsDetails from "./SportsDetails";
 function AllEvents() {
+  const [skill, setSkill] = useState("");
 
- const [query,setQuery]=useState('')
+  const [query, setQuery] = useState("");
 
   const iconStyle = {
     position: "absolute",
@@ -52,13 +53,13 @@ function AllEvents() {
 
   const searchIconStyle = {
     fontSize: "1.5em", // Adjust the size of the icon
+    paddingright: "50px",
   };
 
   const handleSearchClick = () => {
     const searchValue = document.querySelector(".searchbar input").value;
     console.log("Searching for:", searchValue);
-    setQuery(searchValue)
-   
+    setQuery(searchValue);
   };
   const stylebutton = {
     marginTop: "20px",
@@ -69,7 +70,9 @@ function AllEvents() {
     gap: "10px",
     borderRadius: "30px",
   };
-
+  const Clickchat = () => {
+    window.location.href = "https://e2ee-chatapp.vercel.app/";
+  };
   return (
     <>
       <FontAwesomeIcon icon={faUser} style={iconStyle} />
@@ -79,7 +82,35 @@ function AllEvents() {
         <div style={searchIconContainerStyle} onClick={handleSearchClick}>
           <FontAwesomeIcon icon={faMagnifyingGlass} style={searchIconStyle} />
         </div>
+        <div class="dropdown ">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Skill
+          </button>
+          <ul className="dropdown-menu">
+            <li>
+              <a class="dropdown-item" onClick={() => setSkill("beginner")}>
+                Beginner
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" onClick={() => setSkill("intermediate")}>
+                Intermediate
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" onClick={() => setSkill("advanced")}>
+                Advanced
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
+
       <div
         className="buttons"
         style={{
@@ -87,14 +118,33 @@ function AllEvents() {
           justifyContent: "center",
           gap: "20px",
         }}
-      >
-        <button style={stylebutton}>Football</button>
-        <button style={stylebutton}>Cricket</button>
-        <button style={stylebutton}>Badminton</button>
-      </div>
+      ></div>
 
-      <SportsDetails name={query} />
-     
+      <SportsDetails name={query} details="/" skill={skill} />
+      <div className="fixed bottom-6 right-6">
+        <button
+          style={{
+            position: "fixed",
+            bottom: "20px",
+            right: "20px",
+            width: "60px",
+            height: "60px",
+            backgroundColor: "black",
+            color: "white",
+            borderRadius: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+            transition: "transform 0.5s",
+          }}
+          onMouseOver={(e) => (e.target.style.transform = "scale(1.2)")}
+          onMouseOut={(e) => (e.target.style.transform = "scale(1.1)")}
+          onClick={Clickchat}
+        >
+          💬
+        </button>
+      </div>
     </>
   );
 }
