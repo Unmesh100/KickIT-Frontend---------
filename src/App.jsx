@@ -18,20 +18,21 @@ function AuthModal({ isOpen, onClose, onSubmit }) {
   });
 
   const handleSubmit = (e) => {
-    
-    let url=e==='signup'?"https://kickit-backendnew.onrender.com/KickIt/signUp":"https://kickit-backendnew.onrender.com/KickIt/login/"
+    let url =
+      e === "signup"
+        ? "https://kickit-backendnew.onrender.com/KickIt/signUp"
+        : "https://kickit-backendnew.onrender.com/KickIt/login/";
     e.preventDefault();
     onSubmit(activeTab, formData);
-   if(formData.confirmPassword){
-    url="https://kickit-backendnew.onrender.com/KickIt/signUp"
-   }
-   else{
-    url="https://kickit-backendnew.onrender.com/KickIt/login/"
-   }
+    if (formData.confirmPassword) {
+      url = "https://kickit-backendnew.onrender.com/KickIt/signUp";
+    } else {
+      url = "https://kickit-backendnew.onrender.com/KickIt/login/";
+    }
     const options = {
       method: "POST",
-      credentials:'include',
-      withCredentials:true,
+      credentials: "include",
+      withCredentials: true,
       headers: {
         "Content-Type": "application/json; charset=UTF-8",
       },
@@ -39,7 +40,7 @@ function AuthModal({ isOpen, onClose, onSubmit }) {
     };
 
     fetch(`${url}`, options)
-      .then((res) =>res.json())
+      .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((error) => console.error("Error:", error));
   };
@@ -131,6 +132,21 @@ function AuthModal({ isOpen, onClose, onSubmit }) {
                 >
                   {showConfirmPassword ? "👁️" : "👁️‍🗨️"}
                 </button>
+              </div>
+              <div className="form-group">
+                <label htmlFor="skillLevel">Skill Level</label>
+                <select
+                  id="skillLevel"
+                  name="skillLevel"
+                  style={{ height: "50px" }}
+                  value={formData.skillLevel}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="beginner">Beginner</option>
+                  <option value="intermediate">Intermediate</option>
+                  <option value="Advance">Pro</option>
+                </select>
               </div>
             </div>
           )}
