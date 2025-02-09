@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Profile.css'; // Assuming you have a CSS file for styling
+import './profile.css'; // Assuming you have a CSS file for styling
 
 function UpdateProfile() {
   const [file, setFile] = useState(null);
