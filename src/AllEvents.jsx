@@ -120,7 +120,7 @@ function AllEvents() {
         }}
       ></div>
 
-      <SportsDetails name={query} details="/" skill={skill} />
+      <SportsDetails name={query} details="/allAboutEvent" skill={skill} />
       <div className="fixed bottom-6 right-6">
         <button
           style={{
