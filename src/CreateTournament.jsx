@@ -38,7 +38,7 @@ function CreateEvent() {
       body: JSON.stringify(eventData),
     };
 
-    fetch(`https://kickit-backendnew.onrender.com/KickIt/createEvent`, options)
+    fetch(`https://kickit-backendnew.onrender.com/KickIt/createTournament`, options)
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((error) => console.log("here we go"));

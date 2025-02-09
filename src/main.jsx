@@ -14,6 +14,8 @@ import Profile from "./profile.jsx";
 import UpdateProfile from "./updateProfile.jsx";
 import ChatApp from "./chatApp.jsx";
 import CreateTournament from "./CreateTournament.jsx";
+import AllaboutEvent from "./allAboutEvents.jsx"
+
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 const router = createBrowserRouter([
   {
@@ -59,6 +61,15 @@ const router = createBrowserRouter([
     element: (
       <div>
         <UpdateProfile />
+        <SportsAnim />
+      </div>
+    ),
+  },
+  {
+    path: "/allAboutEvent",
+    element: (
+      <div>
+       <AllaboutEvent/>
         <SportsAnim />
       </div>
     ),
@@ -112,6 +123,7 @@ const router = createBrowserRouter([
     path: "/createTournament",
     element: (
       <div>
+        <AllaboutEvent/>
         <Navbar />
 
         <CreateTournament />

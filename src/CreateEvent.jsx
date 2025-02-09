@@ -2,11 +2,13 @@ import axios from "axios";
 import React, { useRef, useState } from "react";
 
 function CreateEvent() {
+  console.group(import.meta.env.URL)
   const [activity, setActivity] = useState("");
   const [venue, setVenue] = useState("");
   const [Player, setPlayer] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const[playersRequired,setPlayers]=useState("")
 
   const dateRef = useRef(null);
   const timeRef = useRef(null);
@@ -18,6 +20,7 @@ function CreateEvent() {
       venue,
       date,
       time,
+      playersRequired
     };
     //     try {
     //       const res = await axios.post("https://kickit-backend-xihr.onrender.com/KickIt/createEvent",eventData)
@@ -105,8 +108,8 @@ function CreateEvent() {
             type="number"
             placeholder="Player Required"
             id="playerRequired"
-            value={Player}
-            onChange={(e) => setPlayer(e.target.value)}
+            value={playersRequired}
+            onChange={(e) => setPlayers(e.target.value)}
             style={{
               width: "100%",
               padding: "10px",

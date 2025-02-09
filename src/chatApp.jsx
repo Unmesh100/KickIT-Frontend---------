@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import io from 'socket.io-client';
-const socket = io('http://127.0.0.1:8000/',{
+const socket = io('https://kickit-backendnew.onrender.com',{
   withCredentials: true,
   transports: ["websocket", "polling"]
 });

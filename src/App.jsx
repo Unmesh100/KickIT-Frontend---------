@@ -18,10 +18,9 @@ function AuthModal({ isOpen, onClose, onSubmit }) {
   });
 
   const handleSubmit = (e) => {
-    let url =
-      e === "signup"
-        ? "https://kickit-backendnew.onrender.com/KickIt/signUp"
-        : "https://kickit-backendnew.onrender.com/KickIt/login/";
+    
+    let url
+     
     e.preventDefault();
     onSubmit(activeTab, formData);
     if (formData.confirmPassword) {
@@ -133,21 +132,7 @@ function AuthModal({ isOpen, onClose, onSubmit }) {
                   {showConfirmPassword ? "👁️" : "👁️‍🗨️"}
                 </button>
               </div>
-              <div className="form-group">
-                <label htmlFor="skillLevel">Skill Level</label>
-                <select
-                  id="skillLevel"
-                  name="skillLevel"
-                  style={{ height: "50px" }}
-                  value={formData.skillLevel}
-                  onChange={handleChange}
-                  required
-                >
-                  <option value="beginner">Beginner</option>
-                  <option value="intermediate">Intermediate</option>
-                  <option value="Advance">Pro</option>
-                </select>
-              </div>
+             
             </div>
           )}
 
